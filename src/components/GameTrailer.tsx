@@ -15,9 +15,7 @@ const GameTrailer = ({gameId}: props) => {
   const first = data?.results[0];
   return first ? (
     <video src={first.data[480]} poster={first.preview} controls />
-  ) : (
-    <Text>The game has no video trailer yet</Text>
-  );
+  ) : null;
 };
 
 export default GameTrailer;

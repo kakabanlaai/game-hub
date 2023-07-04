@@ -18,12 +18,33 @@ const GenreList = () => {
     setGenreId: s.setGenreId,
   }));
 
+  const clearGenreId = () => {
+    setGenreId(undefined);
+  };
+
   if (error) return null;
 
   return (
     <>
-      <Heading fontSize='2xl' marginTop={9} marginBottom={3}>
+      <Heading
+        fontSize='2xl'
+        marginTop={9}
+        marginBottom={3}
+        display={'flex'}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+      >
         Genres
+        {genreId && (
+          <Button
+            size={'xs'}
+            paddingX={'3'}
+            backgroundColor={'transparent'}
+            onClick={clearGenreId}
+          >
+            Clear
+          </Button>
+        )}
       </Heading>
       {isLoading && <Spinner />}
       <List>
